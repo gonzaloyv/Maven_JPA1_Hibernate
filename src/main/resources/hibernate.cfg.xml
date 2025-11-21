@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-configuration>
+	<session-factory>
+		<!-- JDBC -->
+		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_hibernate?useSSL=false&amp;serverTimezone=UTC</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		
+		<!-- Dialect moderno para MySQL -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		
+		<!-- Mostrar SQL en consola -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.highlight_sql">true</property>
+		
+		<!-- Crear / actualizar tablas automáticamente -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<!-- Cada hilo tendrá una única sesión activa asociada a la transacción. Usado por getCurrentSession para evitar "No CurrentSessionContext configured" -->
+		<property name="hibernate.current_session_context_class">thread</property>
+		
+		<!-- Registrar tus entidades -->
+		<mapping class="dwes.Persona" />
+	</session-factory>
+</hibernate-configuration>
