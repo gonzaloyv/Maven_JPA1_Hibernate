@@ -1,6 +1,5 @@
 package dwes;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,17 +13,16 @@ public class Persona {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name="nombre")
-	private String nombreP;
+	private String nombre;
 	
 	private int edad;
 	private String telefono;
 
 	public Persona() {}
 
-	public Persona(String nombreP, int edad, String telefono) {
+	public Persona(String nombre, int edad, String telefono) {
 		super();
-		this.nombreP = nombreP;
+		this.nombre = nombre;
 		this.edad = edad;
 		this.telefono = telefono;
 	}
@@ -37,12 +35,12 @@ public class Persona {
 		this.id = id;
 	}
 
-	public String getNombreP() {
-		return nombreP;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setNombreP(String nombreP) {
-		this.nombreP = nombreP;
+	public void setNombre(String nombreP) {
+		this.nombre = nombreP;
 	}
 
 	public int getEdad() {
@@ -59,5 +57,10 @@ public class Persona {
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
-	}    
+	}
+	
+	@Override
+	public String toString() {
+		return "Persona{id=" + id + ", nombre=" + nombre + ", edad=" + edad + ", telefono =" + telefono + "}";
+	}
 }

@@ -18,7 +18,9 @@
 		<!-- Crear / actualizar tablas automáticamente -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
-		<!-- Cada hilo tendrá una única sesión activa asociada a la transacción. Usado por getCurrentSession para evitar "No CurrentSessionContext configured" -->
+		<!-- Cada hilo tendrá una única sesión activa asociada a la transacción.
+			 Esto le dice a Hibernate: “La sesión actual es por hilo (ThreadLocal).”
+			 Así, la llamada a getCurrentSession funciona evitando "No CurrentSessionContext configured" -->
 		<property name="hibernate.current_session_context_class">thread</property>
 		
 		<!-- Registrar tus entidades -->
