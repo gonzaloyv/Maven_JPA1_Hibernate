@@ -24,6 +24,12 @@
 		<property name="hibernate.current_session_context_class">thread</property>
 		
 		<!-- Registrar tus entidades -->
-		<mapping class="dwes.Persona" />
+		<!--<mapping class="dwes.unidireccional.one_to_one.Persona" />
+		<mapping class="dwes.unidireccional.one_to_one.DNI" />
+		
+		<mapping class="dwes.unidireccional.one_to_many.Departamento" />
+		<mapping class="dwes.unidireccional.one_to_many.Empleado" /> -->
+		<mapping class="dwes.bidireccional.one_to_many.Departamento" />
+		<mapping class="dwes.bidireccional.one_to_many.Empleado" />
 	</session-factory>
 </hibernate-configuration>

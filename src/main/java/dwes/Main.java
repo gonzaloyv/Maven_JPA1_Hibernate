@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import org.hibernate.Session;
+
 class MergeCasos {
 	//
 	// Caso 1 - Entidad detached que venía de una sesión anterior
@@ -205,35 +206,55 @@ public class Main {
         session.getTransaction().commit();
         session.close();
 	}
+	
+	public static Persona selectById(int id) {
+	    Session session = HibernateUtil.getSessionFactory().openSession();
+	    session.beginTransaction();
+
+	    // Hibernate 6/7 → usar session.find() en lugar de get() (deprecated)
+	    Persona p = session.find(Persona.class, id);
+
+	    session.getTransaction().commit();
+	    session.close();
+
+	    return p;  // puede ser null si no existe
+	}
 
 	public static void main(String[] args) {
-//// 		Anticuado Hibernato 5.0
-////		SessionFactory factory = new Configuration().configure().buildSessionFactory();
-////		Session session = factory.openSession();
-//		
-//		StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
-//		SessionFactory factory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
-//		Session session = factory.getCurrentSession();
-//			
-//		insertPersona(session);
-//		
-//		factory.close();
-//		
-//		System.out.println("Persona guardada");
-		Persona p = new Persona("Alberto", 20, "123456789");
-		insertPersona(p);
-		updatePersona("Caracolo");
-		Persona p2 = new Persona("Francisco", 34, "123456789");
-		insertPersona(p2);
+////// 		Anticuado Hibernato 5.0
+//////		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+//////		Session session = factory.openSession();
+////		
+////		StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+////		SessionFactory factory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+////		Session session = factory.getCurrentSession();
+////			
+////		insertPersona(session);
+////		
+////		factory.close();
+////		
+////		System.out.println("Persona guardada");
+////
+
 		
-		List<Persona> personas = selectAll();
-		System.out.println("== Listas personas ===");
-		for (Persona persona: personas) {
-			System.out.println(persona);
-		}
+		////    HIBERNATE 7
+//		Persona p = new Persona("Alberto", 20, "123456789");
+//		insertPersona(p);
+//		updatePersona("Caracolo");
+//		Persona p2 = new Persona("Francisco", 34, "123456789");
+//		insertPersona(p2);
+//		
+//		List<Persona> personas = selectAll();
+//		System.out.println("== Listas personas ===");
+//		for (Persona persona: personas) {
+//			System.out.println(persona);
+//		}
+//		
+//		deletePersona();
+//		deletePersona();
 		
-		deletePersona();
-		deletePersona();
+		//dwes.unidireccional.one_to_many.Prueba.UniOneToMany();
+		dwes.bidireccional.one_to_many.Prueba.BiOneToMany();
 		
 		// Cerrar session factory
 		HibernateUtil.getSessionFactory().close();
