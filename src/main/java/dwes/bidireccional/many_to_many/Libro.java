@@ -1,7 +1,8 @@
 package dwes.bidireccional.many_to_many;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,7 +33,7 @@ public class Libro {
         Libro es el dueño LA RELACIÓN porque define @JoinTable.
         Autor solo refleja la relación con mappedBy.
     */
-    private List<Autor> autores = new ArrayList<>();
+    private Set<Autor> autores = new HashSet<>();
 
     public Libro() {}
 
@@ -67,7 +68,7 @@ public class Libro {
 		this.titulo = titulo;
 	}
 
-	public List<Autor> getAutores() {
+	public Set<Autor> getAutores() {
 		return autores;
 	}
 }

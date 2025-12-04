@@ -1,7 +1,8 @@
 package dwes.bidireccional.many_to_many;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -30,7 +31,7 @@ public class Autor {
         Cascade PERSIST + MERGE permite guardar la relación correctamente
         sin causar borrados accidentales.
     */
-    private List<Libro> libros = new ArrayList<>();
+    private Set<Libro> libros = new HashSet<>();
 
     public Autor() {}
 
@@ -50,7 +51,7 @@ public class Autor {
 		this.nombre = nombre;
 	}
 
-	public List<Libro> getLibros() {
+	public Set<Libro> getLibros() {
 		return libros;
 	}
 
