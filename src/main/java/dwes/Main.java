@@ -254,7 +254,8 @@ public class Main {
 //		deletePersona();
 		
 		//dwes.unidireccional.one_to_many.Prueba.UniOneToMany();
-		dwes.bidireccional.one_to_many.Prueba.BiOneToMany();
+		//dwes.bidireccional.one_to_many.Prueba.BiOneToMany();
+		dwes.bidireccional.many_to_many.Prueba.BiManyToMany();
 		
 		// Cerrar session factory
 		HibernateUtil.getSessionFactory().close();

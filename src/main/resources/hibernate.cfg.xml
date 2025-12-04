@@ -28,8 +28,11 @@
 		<mapping class="dwes.unidireccional.one_to_one.DNI" />
 		
 		<mapping class="dwes.unidireccional.one_to_many.Departamento" />
-		<mapping class="dwes.unidireccional.one_to_many.Empleado" /> -->
+		<mapping class="dwes.unidireccional.one_to_many.Empleado" /> 
 		<mapping class="dwes.bidireccional.one_to_many.Departamento" />
-		<mapping class="dwes.bidireccional.one_to_many.Empleado" />
+		<mapping class="dwes.bidireccional.one_to_many.Empleado" /> -->
+		
+		<mapping class="dwes.bidireccional.many_to_many.Autor" />
+		<mapping class="dwes.bidireccional.many_to_many.Libro" />
 	</session-factory>
 </hibernate-configuration>
